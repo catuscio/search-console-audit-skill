@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search Console Audit"
+  short_description: "검색엔진 등록·색인과 GA4 측정 상태를 근거와 함께 점검합니다"
+  default_prompt: "Use $search-console-audit to check my sites' search registration, indexing, and GA4 measurement, and compare the results with the latest report."
