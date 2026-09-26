@@ -6,7 +6,7 @@ Use the user's timezone and reporting currency. Check enhanced measurement, rete
 
 For SPAs choose exactly one page-view mechanism: Google history-based enhanced measurement, or manual route events with the matching automatic behavior disabled. Confirm initial load and client navigation once each. Avoid collecting sensitive query values or form content; inspect actual search and eligibility inputs before enabling form/search features.
 
-Keep configurable public measurement IDs separate from credentials. Public build variables must reach the image build, not just the running container. Optional tracking must remain absent when no ID is configured. Never place a maintainer's ID into a reusable open-source template.
+Keep configurable public measurement IDs separate from credentials. Public build variables must reach the image build, not just the running container. In Coolify, check whether build-time values are delivered as standard build arguments or BuildKit secret mounts: a Dockerfile ARG alone cannot read a secret mount. If the app needs secret delivery for other variables, support an optional GA-ID mount with an ARG fallback rather than switching all build variables to public arguments. Optional tracking must remain absent when no ID is configured. Never place a maintainer's ID into a reusable open-source template.
 
 Verify three layers independently:
 1. Production HTML/JS has the intended G-ID once and no legacy duplicate tag.
