@@ -13,6 +13,8 @@ Verify three layers independently:
 2. Browser sends successful collect requests to that ID: initial page view, client navigation, correct page location/title and shared cookie domain where applicable.
 3. GA Realtime/DebugView accepts events. If ingestion isn't visible yet, report transport verified and ingestion pending; do not claim full measurement success.
 
+Parse collection requests inside the browser or collector and return only measurement ID, event name, page location/title and response status. Raw collect URLs include user/session identifiers; do not dump or persist them. A cross-origin Resource Timing status of 0 means status is hidden, not success or failure. Use console ingestion evidence or a controller that exposes response status. Wait for DOM readiness and the tag/event, rather than every image or external asset; stop unchanged browser timeouts and use the user-authorized fallback.
+
 Use host name to distinguish sites and source/medium for search traffic. GA sessions are not Search Console clicks; do not add them together. Standard reports can lag; label observation windows.
 
 Official references:
